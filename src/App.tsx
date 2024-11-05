@@ -1,4 +1,5 @@
 import { IndiceEmpleados } from './IndiceEmpleados';
+import './styles.css';
 
 function App() {  
 
@@ -7,7 +8,7 @@ function App() {
   return (
     <>
       <div>
-      <h1>Crud React + EF Net core  </h1>
+      <h2>Crud React + EF Net core  </h2>
         
       </div>
       <hr/>

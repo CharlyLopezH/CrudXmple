@@ -1,28 +1,22 @@
-//Indice de Empleados con buena práctica de manejo de endpoint variable; 
-//Explica una operación GET desde el api renderizada en una tabla.
-//
+//Indice de Empleados BASICO; esto es un ejemplo sencillo de como consumir
+//una operación GET desde el api.
+//Aquí se requiere instalar Axios >yarn add axios
 //Se crea un DTO exactamente igual al DTO utilizado en el API; que es usado para
-//Se obtiene la respuesta esperada del Axios; pero la url ya no está harcodeada,
-//Se obtiene a través de variables de entorno o de ambiente
-//# Con Vite (archivo .env.development)
-// VITE_APP_API_URL=https://localhost:7093/api (En este ejemplo se usa VITE)
-//#Para app creada con create app
-//# REACT_APP_API_URL=https://localhost:7093/api
+//obtener la respuesta esperada del Axios
 
 
 import { useEffect, useState } from "react";
 import axios, { AxiosResponse } from "axios";
 import { empleadoDTO } from "./models/empleados.model";
-import { urlEmpleados } from "./utils/endpoints";
 
 
 
 export const IndiceEmpleados = () => {
-  const [empleados, setEmpleados] = useState<empleadoDTO[]>();  
+  const [empleados, setEmpleados] = useState<empleadoDTO[]>();
 
   useEffect(() => {
     axios
-      .get(urlEmpleados)
+      .get("https://localhost:7093/api/empleados")
       .then((respuesta: AxiosResponse<empleadoDTO[]>) => {
         console.log(respuesta.data);
         setEmpleados(respuesta.data);
