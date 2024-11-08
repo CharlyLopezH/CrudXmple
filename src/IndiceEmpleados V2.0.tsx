@@ -14,8 +14,6 @@ import { useEffect, useState } from "react";
 import axios, { AxiosResponse } from "axios";
 import { empleadoDTO } from "./models/empleados.model";
 import { urlEmpleados } from "./utils/endpoints";
-import { Button } from "./utils/Button";
-import { useNavigate } from "react-router-dom";
 
 
 
@@ -32,7 +30,6 @@ export const IndiceEmpleados = () => {
       .catch((error) => console.error("Error al obtener datos", error));
   }, []);
 
-  const navigate = useNavigate();
   return (
     <>
       <div className="container">
@@ -84,15 +81,12 @@ export const IndiceEmpleados = () => {
                   onClick={()=>{alert('click en Borrar...')}} > 
                   <i className="bi bi-trash"></i> 
                   </button>
-                </td>                  
+                </td>
+
               </tr>
-          
             ))}
           </tbody>
         </table>
-        <Button onClick={() => {navigate('/empleados/crear')}} type={"button"} icon="bi bi-person-plus">                
-                Nuevo
-            </Button> 
       </div>
       <hr />
     </>

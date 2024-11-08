@@ -19,3 +19,21 @@ code {
     font-size: 0.875rem; /* Tamaño de fuente más pequeño */
     padding: 0.25rem 0.5rem; /* Ajusta el padding según tus necesidades */
   }
+
+  .form-group {
+    width: 100%;
+    margin-bottom: 0.25rem;
+  }
+
+  .container {
+    width: 85%; /* Ajusta el ancho al 100% del contenedor padre */
+    max-width: 100%; /* Establece un ancho máximo */
+    height: auto; /* La altura se ajusta automáticamente al contenido */
+    padding: 20px; /* Añade un relleno interno de 20px */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+  }
+
+  .table a {
+    margin-right: 1rem;
+  }
+  

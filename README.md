@@ -1,9 +1,22 @@
 # React + TypeScript + Vite
 
-Al 4 de noviembre la parte GET está implementada
+Requiere Axios
+
+Al 4 de noviembre la parte GET está implementado un ejemplo básico de como consumir y mostrar el resultado del un http get
+
+al 6 de noviembre 2024, un ejemplo de como consumir un get mediante axios, pero no hard-codeado, sino por medio de variables de AMBIENTE .env
+
+
+Creación de formularios (CrearEmpleado component) Se requiere librería Formik, además de que se implementarán componentes personalizados.
+
+
+
+
+
+
+
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
 Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
