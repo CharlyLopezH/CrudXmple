@@ -1,74 +1,75 @@
 import { useNavigate } from "react-router-dom";
-import { Formik, Form, Field } from "formik"
-import { Button } from "./utils/Button"
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Button } from "./utils/Button";
+import * as Yup from "yup";
+import { FormGroupText } from "./utils/FormGroupText";
 
-export const CrearEmpleado=()=>{
-    const navigate = useNavigate();
-    return(
-        <>
-        <div className="class container">
+export const CrearEmpleado = () => {
+  const navigate = useNavigate();
+
+  return (
+    <>
+      <div className="class container">
         <h4>Crear Empleado</h4>
-        <hr/>
-        <Formik initialValues={{
-            codigo:'',
-            nombre:'',
-            apPaterno:'',
-            apMaterno:'',
-        }}
-        onSubmit={values=>{console.log(values)}}
+        <hr />
+        <Formik
+          initialValues={{
+            codigo: "",
+            nombre: "",
+            apPaterno: "",
+            apMaterno: "",
+          }}
+          onSubmit={(values) => {
+            console.log(values);
+          }}
+          validationSchema={Yup.object({
+            codigo: Yup.number().required("El código es requerido").integer("Debe ser numérico").positive("No puede ser cero o negativo"),
+            ApPaterno: Yup.string().required("El Apellido Paterno es Requerido"),
+          })}
         >
-        <Form>
-            <div className="form-group">
+          <Form>
+            <div style={{ display: "flex", gap: "5px", width: "100%" }}>
+              <div style={{ flex: "1" }}>
+                <FormGroupText campo="codigo" label="Código" />
+              </div>
 
-            <label htmlFor="codigo" style={{ maxWidth: '100%' }}>Código:</label>
-            <Field name="codigo" className="form-control" style={{ width: '20%'}}/>
+              <div style={{ flex: "1" }}>
+                <FormGroupText campo="ApPaterno" label="Apellido Paterno" />
+              </div>
 
-            <div style={{ display: 'flex', gap: '5px', width: '100%' }}>
-
-            <div style={{ flex: '1' }}>
-                <label htmlFor="nombre">Nombre:</label>
-                <Field name="nombre" className="form-control" />
+              <div style={{ flex: "1" }}>
+                <FormGroupText campo="ApMaterno" label="Apellido Materno:" />
+              </div>
             </div>
 
-            <div style={{ flex: '1' }}>
-                <label htmlFor="ApPaterno">Ap. Paterno:</label>
-                <Field name="ApPaterno" className="form-control" />
-            </div>
+            <FormGroupText campo="fNac" label="Fecha de Nacimiento:" />
 
-            <div style={{ flex: '1' }}>
-                <label htmlFor="ApMaterno">Ap. Materno:</label>
-                <Field name="ApMaterno" className="form-control" />
-            </div>
-            </div>
+            <FormGroupText campo="eMail" label="Email:" />
 
-            <label htmlFor="fNac" style={{ maxWidth: '100%' }}>Fecha de Nacimiento:</label>
-            <Field name="fNac" className="form-control" style={{ width: '100%'}}/>
+            <FormGroupText campo="foto" label="Foto:" />
 
-            <label htmlFor="eMail" style={{ maxWidth: '100%' }}>Email:</label>
-            <Field name="eMail" className="form-control" style={{ width: '100%'}}/>
+            <FormGroupText campo="sexo" label="Sexo:" />
 
-            <label htmlFor="foto" style={{ maxWidth: '100%' }}>Foto:</label>
-            <Field name="foto" className="form-control" style={{ width: '100%'}}/>
+            <FormGroupText
+              campo="tNombramiento"
+              label="Tipo de Nombramiento:"
+            />
 
-            <label htmlFor="sexo" style={{ maxWidth: '100%' }}>Sexo:</label>
-            <Field name="sexo" className="form-control" style={{ width: '100%'}}/>
+            <FormGroupText campo="activo" label="Activo:" />
 
-            <label htmlFor="tNombramiento" style={{ maxWidth: '100%' }}>T. Nombramiento:</label>
-            <Field name="tNombramiento" className="form-control" style={{ width: '100%'}}/>
-
-            <label htmlFor="activo" style={{ maxWidth: '100%' }}>Activo:</label>
-            <Field name="activo" className="form-control" style={{ width: '100%'}}/>
-
-            
-
-            </div>
-
-            <Button onClick={() => {navigate('/')}} type={"button"} icon="bi bi-floppy2">                
-                Salvar
-            </Button>            
-        </Form>
+            {/* <Button onClick={() => {navigate('/')}} type={"button"} icon="bi bi-floppy2">                 */}
+            <Button
+              onClick={() => {
+                console.log("onclick");
+              }}
+              type={"button"}
+              icon="bi bi-floppy2"
+            >
+              Salvar
+            </Button>
+          </Form>
         </Formik>
-        </div>
-        </>
-    )
-}
+      </div>
+    </>
+  );
+};

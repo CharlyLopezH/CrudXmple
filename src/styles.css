@@ -36,4 +36,8 @@ code {
   .table a {
     margin-right: 1rem;
   }
+
+  .text-danger {
+    font-size: 0.8rem;
+  }
   
